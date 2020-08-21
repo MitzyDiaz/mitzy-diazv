@@ -1,0 +1,80 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-dropdown/iron-dropdown.html">
+<link rel="import" href="../vaadin-button/vaadin-button.html">
+
+
+<dom-module id="mitzy-diazv">
+    <template>
+    <style>
+      :host {
+        display: block;
+      }
+      #container {
+        display: inline-block;
+      }
+
+      iron-dropdown {
+        border: 1px solid gray;
+        background: white;
+        font-size: 2em;
+      }
+
+      #bdrop{
+        background: blueviolet;
+        padding: 5px;
+        width: 115px;
+        border-radius: 5px;
+        color: white;
+      }
+    </style>
+
+    <div id="container">
+    <h2>Hola [[prop1]]!</h2>
+    <button slot="dropdown-trigger" on-click="open" id="bdrop">Abreme ;)</button>
+    <iron-dropdown id="dropdown" no-overlap>
+        <div slot="dropdown-content" class="random-content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+    </iron-dropdown>
+    </div>
+    <br>
+    <vaadin-button theme="primary" on-click="presiona">Presioname</vaadin-button>
+  </template>
+    <script>
+        /**
+         * `mitzy-diazv`
+         * mi primer poly
+         *
+         * @customElement
+         * @polymer
+         * @demo demo/index.html
+         */
+        class MitzyDiazv extends Polymer.Element {
+            static get is() {
+                return 'mitzy-diazv';
+            }
+            static get properties() {
+                return {
+                    prop1: {
+                        type: String,
+                        value: 'Mitzysauria'
+                    }
+                };
+            }
+
+            open() {
+                this.$.dropdown.open();
+            }
+            presiona() {
+                if (confirm("¿Estas seguro que deseas seguir?")) {
+                    alert('¡Muchas gracias! :D Este es mi primer componente');
+                } else {
+                    alert('Bye :c');
+                }
+            }
+        }
+
+        window.customElements.define(MitzyDiazv.is, MitzyDiazv);
+    </script>
+</dom-module>
