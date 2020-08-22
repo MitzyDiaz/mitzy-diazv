@@ -6,8 +6,6 @@
 <link rel="import" href="../paper-input/all-imports.html">
 
 
-
-
 <dom-module id="mitzy-diazv">
     <template>
     <style>
@@ -48,7 +46,8 @@
 
     <paper-card heading="[[title]]">
       <paper-input label="inputLabel" value="{{inputValue}}"></paper-input>
-      <paper-button>{{inputValue}}</paper-button>
+      <paper-button>{{buttonValue}}</paper-button>
+      <slot></slot>
     </paper-card>
   </template>
     <script>
@@ -82,10 +81,16 @@
                         type: String,
                         value: "",
                         notify: "true"
+                    },
+                    buttonValue: {
+                        type: String,
+                        value: "Boton"
+
                     }
                 };
             }
 
+            /*
             open() {
                 this.$.dropdown.open();
             }
@@ -96,6 +101,7 @@
                     alert('Bye :c');
                 }
             }
+            */
         }
 
         window.customElements.define(MitzyDiazv.is, MitzyDiazv);
