@@ -1,6 +1,11 @@
 <link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../iron-dropdown/iron-dropdown.html">
 <link rel="import" href="../vaadin-button/vaadin-button.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../paper-input/all-imports.html">
+
+
 
 
 <dom-module id="mitzy-diazv">
@@ -30,7 +35,7 @@
 
     <div id="container">
     <h2>Hola [[prop1]]!</h2>
-    <button slot="dropdown-trigger" on-click="open" id="bdrop">Abreme</button>
+    <!--<button slot="dropdown-trigger" on-click="open" id="bdrop">Abreme</button>
     <iron-dropdown id="dropdown" no-overlap>
         <div slot="dropdown-content" class="random-content">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
@@ -39,7 +44,12 @@
     </iron-dropdown>
     </div>
     <br>
-    <vaadin-button theme="primary" on-click="presiona">Presioname</vaadin-button>
+    <vaadin-button theme="primary" on-click="presiona">Presioname</vaadin-button>-->
+
+    <paper-card heading="[[title]]">
+      <paper-input label="inputLabel" value="{{inputValue}}"></paper-input>
+      <paper-button>{{inputValue}}</paper-button>
+    </paper-card>
   </template>
     <script>
         /**
@@ -59,6 +69,19 @@
                     prop1: {
                         type: String,
                         value: 'Mitzysauria'
+                    },
+                    title: {
+                        type: String,
+                        value: 'Title'
+                    },
+                    inputLabel: {
+                        type: String,
+                        value: "Label"
+                    },
+                    inputValue: {
+                        type: String,
+                        value: "",
+                        notify: "true"
                     }
                 };
             }
