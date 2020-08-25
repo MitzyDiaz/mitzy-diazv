@@ -8,48 +8,44 @@
 
 <dom-module id="mitzy-diazv">
     <template>
-    <style>
-      :host {
-        display: block;
-      }
-      #container {
-        display: inline-block;
-      }
-
-      iron-dropdown {
-        border: 1px solid gray;
-        background: white;
-        font-size: 2em;
-      }
-
-      #bdrop{
-        background: blueviolet;
-        padding: 5px;
-        width: 115px;
-        border-radius: 5px;
-        color: white;
-      }
-    </style>
-
-    <div id="container">
-    <h2>Hola [[prop1]]!</h2>
-    <!--<button slot="dropdown-trigger" on-click="open" id="bdrop">Abreme</button>
-    <iron-dropdown id="dropdown" no-overlap>
-        <div slot="dropdown-content" class="random-content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        </div>
-    </iron-dropdown>
-    </div>
-    <br>
-    <vaadin-button theme="primary" on-click="presiona">Presioname</vaadin-button>-->
-
-    <paper-card heading="[[title]]">
-      <paper-input label="inputLabel" value="{{inputValue}}"></paper-input>
-      <paper-button>{{buttonValue}}</paper-button>
-      <slot></slot>
-    </paper-card>
-  </template>
+        <style>
+          :host {
+            display:block;
+            border-radius: 5px;
+            @apply --mitzy-diazv;
+          }
+    
+          paper-card{
+              --paper-card:{
+                  width: 100%;
+                  border-radius:5px;
+              }
+              --paper-card-background-color: red;
+              @apply --mitzy-diazv-paper-card;
+          }
+    
+          paper-input{
+              padding: 1rem;
+              @apply --mitzy-diazv-paper-input;
+          }
+          paper-button{
+              --paper-button:{
+                  border-radius:1rem;
+                  background-color: aqua;
+              }
+          }
+          ::slotted(*){
+              padding:1rem;
+              color: red;
+          }
+        </style>
+        <paper-card heading="[[title]]">
+          <paper-input label="inputLabel" value="{{inputValue}}"></paper-input>
+          <paper-button>{{buttonValue}}</paper-button>
+          <slot></slot>
+        </paper-card>
+    
+      </template>
     <script>
         /**
          * `mitzy-diazv`
